@@ -7,8 +7,17 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ["Poppins", "sans-serif"],
-        body: ["Nunito", "sans-serif"],
+        'aktiv': ['"Aktiv Grotesk"', 'sans-serif'],
+        'Grotesk':['"Space Grotesk"', 'sans-serif']
+      },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 15s linear infinite",
       },
 }
   },
