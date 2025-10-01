@@ -75,7 +75,7 @@ export default function ServicesPage() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-5xl md:text-6xl font-extrabold tracking-tight 
                          bg-clip-text text-transparent 
-                         bg-gradient-to-r from-[rgba(27, 237, 248, 1)] to-[rgb(40,180,190)]"
+                         bg-gradient-to-r from-[rgba(27, 237, 248, 1)] to-[rgb(40,180,190)] "
             >
               Our Services
             </motion.h1>
@@ -90,7 +90,7 @@ export default function ServicesPage() {
              transition-all duration-300 ease-out 
              hover:scale-105 hover:shadow-[0_0_25px_rgb(60,207,215,0.6)]"
             >
-              <span className="relative z-10">Get Started</span>
+              <span className="relative z-10">Explore Services</span>
 
               {/* Glow Border Effect */}
               <span className="absolute inset-0 rounded-2xl bg-gradient-to-r 
@@ -185,16 +185,6 @@ export default function ServicesPage() {
             ))}
           </div>
         </section>
-
-
-
-
-
-
-
-
-        {/* Why Choose Us */}
-
 
         {/* Footer */}
         <Footer />

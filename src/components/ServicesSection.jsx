@@ -13,9 +13,8 @@ export default function ServicesSection() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-5xl font-bold bg-clip-text text-transparent 
-                     bg-gradient-to-r from-[rgb(60,207,215)] via-cyan-400 to-blue-600 
-                     text-center mb-16"
+          className="text-5xl font-bold bg-clip-text text-gray-800
+                     text-center mb-16 "
         >
           Our Services
         </motion.h2>

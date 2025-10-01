@@ -68,8 +68,7 @@ export default function CustomGrid() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="font-Grotesk font-bold text-3xl font-bold bg-clip-text text-transparent 
-                     bg-gradient-to-r from-[rgb(60,207,215)] via-cyan-400 to-blue-600 
+          className="font-Grotesk font-bold text-3xl font-bold bg-clip-text text-gray-800 
                      text-center mb-16"
         >
           Premium Equipment & Products
@@ -78,7 +77,7 @@ export default function CustomGrid() {
         </motion.h2>
 
 
-        <div className="p-6 grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[150px] m-20 rounded" >
+        <div className=" grid grid-cols-1 md:grid-cols-4 gap-2 auto-rows-[150px] m-28 rounded" >
           {product.map((product, idx) => {
             const col = idx % 4; // figure out column index
             // Assign row span based on column

@@ -1,84 +1,77 @@
-import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import { Menu, X } from "lucide-react"; // for icons
+import { Menu, X } from "lucide-react"; // icons
+import { HashLink } from "react-router-hash-link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const navLinks = [
+    { name: "Home", href: "/#hero" },
+    { name: "Services", href: "/#services" },
+    { name: "Products", href: "/#products" },
+    { name: "Why Choose Us", href: "/#why-choose-us" },
+    { name: "Contact", href: "/#contact" },
+  ];
+
   return (
-    <nav
-      className="fixed top-0 w-full 
-                 bg-[rgba(255,255,255,0.85)] text-[rgb(40,180,190)] 
-                 dark:bg-[rgba(0,0,0,0.3)] dark:text-white
-                 backdrop-blur-sm z-50 flex justify-between items-center px-6 md:px-8 py-4
-                 border-b border-gray-200 dark:border-gray-700
-                 transition-colors duration-500"
-      aria-label="Main navigation"
-    >
-      {/* Logo / Brand */}
-      <h1 className="text-xl md:text-2xl font-extrabold tracking-wide">
-        <Link
-          to="/"
-          className="no-underline hover:opacity-70 transition-opacity duration-200"
+    <nav className="w-full sticky top-0 z-50 bg-white text-black border-b border-gray-200 shadow-sm">
+      <div className="max-w-7xl mx-auto px-6 md:px-0 py-4 flex items-center justify-between">
+        
+        {/* Logo / Brand */}
+        <div className="flex items-center gap-2">
+          <img src="/images/logo2.png" alt="Logo" className="h-12 w-auto" />
+          <h1 className="font-extrabold tracking-wide leading-tight">
+            <HashLink smooth to="/#hero" className="transition-colors hover:text-teal-700">
+              <span className="text-teal-600 text-xl md:text-2xl block">TRUE STAR</span>
+              <span className="text-gray-600 text-sm md:text-base font-normal">
+                Business Solutions
+              </span>
+            </HashLink>
+          </h1>
+        </div>
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex gap-8 text-base font-medium">
+          {navLinks.map((link, idx) => (
+            <li key={idx} className="relative group">
+              <HashLink
+                smooth
+                to={link.href}
+                className="font-Grotesk transition-colors hover:text-teal-600 relative group"
+              >
+                {link.name}
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-teal-600 transition-all duration-300 group-hover:w-full"></span>
+              </HashLink>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile Hamburger */}
+        <button
+          className="md:hidden text-3xl text-black"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
         >
-          MyBrand
-        </Link>
-      </h1>
+          {isOpen ? <X /> : <Menu />}
+        </button>
+      </div>
 
-      {/* Desktop Menu */}
-      <ul className="hidden md:flex gap-8 text-lg font-medium">
-        <li>
-          <a
-            href="#services"
-            className="no-underline hover:opacity-70 transition-opacity duration-200"
-          >
-            Services
-          </a>
-        </li>
-        <li>
-          <Link
-            to="/contact-us"
-            className="no-underline hover:opacity-70 transition-opacity duration-200"
-          >
-            Contact Us
-          </Link>
-        </li>
-      </ul>
-
-      {/* Mobile Hamburger */}
-      <button
-        className="md:hidden text-2xl focus:outline-none"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle menu"
-      >
-        {isOpen ? <X /> : <Menu />}
-      </button>
-
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Drawer */}
       {isOpen && (
-        <div
-          className="absolute top-full left-0 w-full bg-[rgba(255,255,255,0.95)] dark:bg-[rgba(0,0,0,0.9)] 
-                     backdrop-blur-sm shadow-md md:hidden"
-        >
-          <ul className="flex flex-col gap-4 p-6 text-lg font-medium">
-            <li>
-              <a
-                href="#services"
-                className="block no-underline hover:opacity-70 transition-opacity duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <Link
-                to="/contact-us"
-                className="block no-underline hover:opacity-70 transition-opacity duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Contact Us
-              </Link>
-            </li>
+        <div className="md:hidden bg-white border-t border-gray-200 shadow-md">
+          <ul className="flex flex-col gap-6 px-6 py-8 text-lg font-medium text-black">
+            {navLinks.map((link, idx) => (
+              <li key={idx}>
+                <HashLink
+                  smooth
+                  to={link.href}
+                  className="block hover:text-teal-600 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </HashLink>
+              </li>
+            ))}
           </ul>
         </div>
       )}
