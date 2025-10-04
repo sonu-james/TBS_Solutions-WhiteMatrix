@@ -1,34 +1,34 @@
 import React, { useState } from "react";
-import { Menu, X } from "lucide-react"; // icons
+import { Menu, X } from "lucide-react";
 import { HashLink } from "react-router-hash-link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", href: "/#hero" },
-    { name: "Services", href: "/#services" },
-    { name: "Products", href: "/#products" },
-    { name: "Why Choose Us", href: "/#why-choose-us" },
-    { name: "Contact", href: "/#contact" },
+    { name: "HOME", href: "/#hero" },
+    { name: "SERVICES", href: "/services" },
+    { name: "PRODUCTS", href: "/#products" },
+    { name: "WHY US", href: "/#why-choose-us" },
+    { name: "CONTACT", href: "/#contact" },
+    { name: "DOWNLOADS", href: "/download" },
   ];
 
   return (
     <nav className="w-full sticky top-0 z-50 bg-white text-black border-b border-gray-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 md:px-0 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         
-        {/* Logo / Brand */}
-        <div className="flex items-center gap-2">
-          <img src="/images/logo2.png" alt="Logo" className="h-12 w-auto" />
-          <h1 className="font-extrabold tracking-wide leading-tight">
-            <HashLink smooth to="/#hero" className="transition-colors hover:text-teal-700">
-              <span className="text-teal-600 text-xl md:text-2xl block">TRUE STAR</span>
-              <span className="text-gray-600 text-sm md:text-base font-normal">
-                Business Solutions
-              </span>
-            </HashLink>
+        {/* Brand */}
+        <HashLink smooth to="/#hero" className="block group">
+          <h1 className="flex flex-col items-start leading-none">
+            <span className="text-2xl md:text-3xl font-blackhan tracking-[0.25em] uppercase">
+              TRUE STAR
+            </span>
+            <span className="text-xs md:text-sm font-normal tracking-[0.48em] text-gray-600">
+              business solutions
+            </span>
           </h1>
-        </div>
+        </HashLink>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 text-base font-medium">
@@ -37,10 +37,10 @@ export default function Navbar() {
               <HashLink
                 smooth
                 to={link.href}
-                className="font-Grotesk transition-colors hover:text-teal-600 relative group"
+                className="transition-colors hover:text-[rgb(50,180,190)] font-alan text-sm relative"
               >
                 {link.name}
-                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-teal-600 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[rgb(50,180,190)] transition-all duration-300 group-hover:w-full"></span>
               </HashLink>
             </li>
           ))}
@@ -59,13 +59,13 @@ export default function Navbar() {
       {/* Mobile Drawer */}
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 shadow-md">
-          <ul className="flex flex-col gap-6 px-6 py-8 text-lg font-medium text-black">
+          <ul className="flex flex-col gap-6 px-6 py-6 text-lg font-medium text-black">
             {navLinks.map((link, idx) => (
               <li key={idx}>
                 <HashLink
                   smooth
                   to={link.href}
-                  className="block hover:text-teal-600 transition-colors"
+                  className="block hover:text-[rgb(50,180,190)] transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}

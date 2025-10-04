@@ -9,12 +9,14 @@ export default function ServicesSection() {
     >
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Heading */}
+
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-5xl font-bold bg-clip-text text-gray-800
-                     text-center mb-16 "
+          className="text-5xl font-bold bg-clip-text font-blackhan  text-transparent 
+                     bg-gradient-to-r from-[rgb(60,207,215)] via-cyan-500 to-blue-600 
+                     text-center mb-16"
         >
           Our Services
         </motion.h2>
@@ -42,10 +44,10 @@ export default function ServicesSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, ease: "easeOut" }}
           >
-            <h3 className="text-3xl font-bold text-gray-800 mb-6">
+            <h3 className="text-3xl font-bold font-alan text-gray-800 mb-6">
               Professional Printing & Branding Solutions
             </h3>
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <p className="text-gray-600 mb-6 font-aktiv leading-relaxed">
               We provide high-quality printing and branding services to help your
               business stand out. From large-format prints and signage to custom
               office stationery and corporate gifts, our solutions are designed

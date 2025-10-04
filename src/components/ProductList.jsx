@@ -1,110 +1,166 @@
-import { title } from "framer-motion/client";
+'use client';
+
 import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
-const product = [
-    {title:"Photocopier Rentals",
+const products = [
+  {
+    title: "Photocopier Rentals",
     des: "Flexible rental options with full maintenance included.",
-    img:"https://tse1.mm.bing.net/th/id/OIP.D3nhvrXh3H1swdoIS8Lb-gHaE8?pid=Api&P=0&h=180"
-},
-{
-    title:"Large Format Printers",
-    des:"Graphtec & Mistral cutting plotters for precision work.",
-    img:"https://5.imimg.com/data5/AZ/KY/WS/GLADMIN-3061/hp-designjet-z5400-44-inch-large-format-printer.jpg"
-},
-{
-    title:"Projectors & Video Walls",
-    des:"4K Ultra HD with Android support for seamless presentations.",
-    img:"http://images.frandroid.com/wp-content/uploads/2018/01/lg.jpeg"
-},
-{
-    title:"Barcode Solutions",
-    des:"Labels, stickers, ribbons & thermal printing supplies.",
-    img:"https://ghost-image.boxhero.io/https://boxhero-en.ghost.io/content/images/2024/11/iStock-154958970.jpg"
-},
-{
-    title:"Lamination Equipment",
-    des:"Professional hot & cold laminator series.",
-    img:"https://m.media-amazon.com/images/I/41azrtBjALL._SY355_.jpg"
-},{
-    title:"Office Equipments",
-    des:"Binding, shredding & scanning machines.",
-    img:"http://g-ecx.images-amazon.com/images/G/01/electronics/detail-page/DR2020USlantwDoc_nobkgd.jpg"
-},
-{
-    title:"Toners & Ink Cartridges",
-    des:"High quality printer suppliers",
-    img:"https://smartink.pro/ca/wp-content/uploads/sites/4/2023/03/set-spare-laser-printer-toner-cartridges-cyan-magenta-yellow-black-1-scaled.jpg"
-},
-{
-    title:"Binding Machines",
-    des:"Binding, shredding & scanning machines.",
-    img:"https://www.artnews.com/wp-content/uploads/2020/12/AdobeStock_103157278.jpeg"
-},
-{
-    title:"Shredders",
-    des:"Modern tool for waste management",
-    img:"https://m.media-amazon.com/images/I/71E1W-DNv0L.jpg"
-},
-{
-    title:"Cutting Plotters",
-    des:"Precision cutting, allowing businesses and hobbyists to create intricate designs effortlessly.",
-    img:"https://cuttingplotters.in/wp-content/uploads/2023/11/10.png"
-},
+    details: `Our photocopier rental service provides flexible, affordable options with full maintenance. Get high-quality prints, reliable machines, and hassle-free performance without long-term commitments.`,
+    img: "/Photocopier.jpg",
+  },
+  {
+    title: "Large Format Printers",
+    des: "Graphtec & Mistral cutting plotters for precision work.",
+    details: `We specialize in large-format printing including roll-up stands, flex prints, display boards, and exhibition counters. High-quality prints designed to deliver visual impact with durability and precision.`,
+    img: "https://5.imimg.com/data5/AZ/KY/WS/GLADMIN-3061/hp-designjet-z5400-44-inch-large-format-printer.jpg",
+  },
+  {
+    title: "Projectors & Video Walls",
+    des: "4K Ultra HD with Android support for seamless presentations.",
+    details: `We offer projectors, video walls, and digital signage with dual OS support, wireless transmitters, and sharp displays to make every presentation stand out.`,
+    img: "http://images.frandroid.com/wp-content/uploads/2018/01/lg.jpeg",
+  },
+  {
+    title: "Barcode Solutions",
+    des: "Labels, stickers, ribbons & thermal printing supplies.",
+    details: `We offer barcode sticker rolls in various sizes such as 100x150mm, 50x50mm, and 38x25mm, plus thermal ribbons in 110mm x 300m and 60mm x 300m. Reliable and professional labeling for retail, logistics, and inventory.`,
+    img: "https://ghost-image.boxhero.io/https://boxhero-en.ghost.io/content/images/2024/11/iStock-154958970.jpg",
+  },
+  {
+    title: "Lamination Equipment",
+    des: "Professional hot & cold laminator series.",
+    details: `Our lamination equipment offers glossy and matte finishes for documents, posters, and signage. Ensure durability and a polished professional look for all your materials.`,
+    img: "https://m.media-amazon.com/images/I/41azrtBjALL._SY355_.jpg",
+  },
+  {
+    title: "Office Equipments",
+    des: "Binding, shredding & scanning machines.",
+    details: `We provide essential office equipment including binding machines, shredders, and scanners. Reliable tools to keep your office workflow smooth and efficient.`,
+    img: "http://g-ecx.images-amazon.com/images/G/01/electronics/detail-page/DR2020USlantwDoc_nobkgd.jpg",
+  },
+];
 
-]
-const products = Array.from({ length: 10 }).map((_, i) => ({
-  title: `Item ${i + 1}`,
-  img: "https://tse1.mm.bing.net/th/id/OIP.D3nhvrXh3H1swdoIS8Lb-gHaE8?pid=Api&P=0&h=180",
-}));
+const TOKENS = {
+  bg: "#00081a",
+  text: "#E8EEF0",
+  accent: "#60B6D8",
+};
 
-export default function CustomGrid() {
+// Card animation
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+export default function ProductPage() {
   return (
-   <>
-   <Navbar/>
-    <div className="p-3 mt-20 ">
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="font-Grotesk font-bold text-3xl font-bold bg-clip-text text-gray-800 
-                     text-center mb-16"
-        >
-          Premium Equipment & Products
-          <p className="font-Grotesk text-sm text-gray-500 mt-8 font-normal">Industry-leading equipment and supplies for your business needs
-</p>
-        </motion.h2>
+    <div
+      style={{
+        background: `radial-gradient(circle at 0% 20%, rgba(6,14,28,0.80), ${TOKENS.bg})`,
+      }}
+      className="min-h-screen text-white"
+    >
+      <Navbar />
 
-
-        <div className=" grid grid-cols-1 md:grid-cols-4 gap-2 auto-rows-[150px] m-28 rounded" >
-          {product.map((product, idx) => {
-            const col = idx % 4; // figure out column index
-            // Assign row span based on column
-            const rowSpan =
-              idx === 1 || idx === 2 || idx === 6 || idx===7   ? "row-span-3" : "row-span-2";
-    
-            return (
-              <div
-                key={idx}
-                className={`relative group overflow-hidden rounded-lg shadow-lg ${rowSpan}`}
-              >
-                <img
-                  src={product.img}
-                  alt={product.title}
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white  font-semibold">
-                <h1 className="text-xl text-center">  {product.title}</h1>
-                  <p className="  font-Grotesk flex items-center justify-center text-center mt-2" >{product.des}</p>
-                </div>
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-20">
+        <div className="grid grid-cols-12 gap-8 items-start">
+          {/* Left Sidebar (hidden on mobile) */}
+          <aside className="hidden md:flex md:col-span-4 flex-col items-start sticky top-24 pt-10">
+            <h1
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold"
+              style={{
+                color: TOKENS.text,
+                lineHeight: 1.1,
+                letterSpacing: "-0.02em",
+                fontFamily: "Aktiv, Alan Sans, system-ui, sans-serif",
+              }}
+            >
+              <div>
+                Our{" "}
+                <span style={{ color: TOKENS.accent, fontWeight: 400 }}>
+                  Products
+                </span>
               </div>
-            );
-          })}
+              <div>for Businesses</div>
+            </h1>
+
+            <div className="mt-6 relative flex items-center justify-center">
+              <span
+                className="text-xl sm:text-2xl md:text-3xl font-bold relative z-10"
+                style={{ color: TOKENS.accent }}
+              >
+                TBS
+              </span>
+              <motion.div
+                className="absolute bottom-0 left-0 right-0 h-1"
+                style={{ backgroundColor: TOKENS.accent }}
+                animate={{ scaleX: [0, 1, 0] }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 3,
+                  ease: "easeInOut",
+                }}
+              />
+            </div>
+          </aside>
+
+          {/* Right Main Section */}
+          <section className="col-span-12 md:col-span-8">
+            <motion.div
+              initial={{ opacity: 0, x: -18 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-300 mb-6">
+                PRODUCTS
+              </h2>
+            </motion.div>
+
+            {/* Products */}
+            <div className="mt-8 space-y-10">
+              {products.map((prod, idx) => (
+                <motion.div
+                  key={idx}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={cardVariants}
+                >
+                  <div className="flex flex-col md:flex-row bg-[#0d151a] rounded-xl shadow-xl overflow-hidden hover:scale-[1.02] transition-transform duration-500">
+                    {/* Image */}
+                    <div className="w-full md:w-1/2 bg-white flex items-center justify-center">
+                      <img
+                        src={prod.img}
+                        alt={prod.title}
+                        className="w-[350px] h-[250px] object-contain"
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <div className="w-full md:w-1/2 p-6 flex flex-col justify-center">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                        {prod.title}
+                      </h3>
+                      <p className="text-gray-300 mt-2 text-sm sm:text-base">
+                        {prod.des}
+                      </p>
+                      <p className="text-gray-400 mt-2 text-sm sm:text-base">
+                        {prod.details}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </section>
         </div>
+      </main>
+
+      <Footer />
     </div>
-   
-   
-   </>
   );
 }

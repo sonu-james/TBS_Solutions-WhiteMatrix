@@ -8,7 +8,10 @@ export default {
     extend: {
       fontFamily: {
         'aktiv': ['"Aktiv Grotesk"', 'sans-serif'],
-        'Grotesk':['"Space Grotesk"', 'sans-serif']
+        'Grotesk': ['"Space Grotesk"', 'sans-serif'],
+        'blackhan': ['"Black Han Sans"', 'sans-serif'],
+        'luckiest': ['"Luckiest Guy"', 'cursive'],
+         'alan': ['"Alan Sans"', 'sans-serif']
       },
       keyframes: {
         marquee: {
@@ -19,7 +22,11 @@ export default {
       animation: {
         marquee: "marquee 15s linear infinite",
       },
-}
+      scale: {
+        'y-125': '1.25',
+        'y-150': '1.5',
+      },
+    },
   },
   plugins: [],
 }

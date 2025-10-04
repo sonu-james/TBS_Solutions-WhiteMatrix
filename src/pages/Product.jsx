@@ -7,7 +7,7 @@ function Product() {
   return (
     <div>
       <ImageGrid/>
-      <Footer/>
+     
     </div>
   )
 }

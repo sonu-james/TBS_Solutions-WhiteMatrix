@@ -1,22 +1,25 @@
 import React from "react";
-
-import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
 
+import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Product from "./pages/Product";
+
+import MouseShadow from "./components/MouseShadow"; // import the component
+import PdfDownloads from "./components/PdfDownloads";
 
 export default function App() {
   return (
     <>
+      {/* Mouse shadow will be on all pages */}
+      <MouseShadow />
+
       <Routes>
-        <Route path='/' element={<Home />}></Route>
-        {/* <Route path='/contact-us' element={<Contact />}></Route> */}
-        {/* <Route path='/about-us' element={<About />}></Route> */}
-         <Route path='/services' element={<Services/>}></Route>
-         <Route path='/products' element={<Product />}></Route>
+        <Route path='/' element={<Home />} />
+        <Route path='/services' element={<Services />} />
+        <Route path='/products' element={<Product />} />
+        <Route path='/download' element={<PdfDownloads/>} />
       </Routes>
     </>
-
   );
 }
