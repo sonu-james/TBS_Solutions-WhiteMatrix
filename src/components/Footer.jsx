@@ -23,7 +23,7 @@ export default function Footer() {
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <div className="mb-4">
                 <img
-                  src="/logo2.png"
+                  src="src/assets/images/logo2.png"
                   alt="TBS Logo"
                   className="w-24 sm:w-28 md:w-36 h-auto object-contain"
                 />

@@ -7,21 +7,21 @@ const sections = [
     title: "TRANSFORM YOUR BRAND IDENTITY",
     desc: "We craft compelling brand experiences that leave lasting impressions.",
     bg: "/bgim1.png",
-    video: "/bgvideo1.mp4", // 👈 put video in public/videos
+    video: "/src/assets/videos/bgvideo1.mp4", // 👈 put video in public/videos
   },
   {
     id: 2,
     title: "ELEVATE YOUR CORPORATE GIFTING CAPITAL",
     desc: "Premium corporate gifting solutions designed to impress and inspire.",
     bg: "/bgim2.png",
-    video: "/bgvideo2.mp4",
+    video: "/src/assets/videos/bgvideo2.mp4",
   },
   {
     id: 3,
     title: "COMPLETE OFFICE SOLUTIONS",
     desc: "From office equipment to services, we deliver complete workplace solutions.",
     bg: "/bgim1.png",
-    video: "/bgvideo1.mp4",
+    video: "/src/assets/videos/bgvideo1.mp4",
   },
 ];
 

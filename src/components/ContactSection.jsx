@@ -15,7 +15,7 @@ function ContactSection() {
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-[-1] brightness-50"
       >
-        <source src="/bgvideo1.mp4" type="video/mp4" />
+        <source src="/src/assets/videos/bgvideo1.mp4" type="video/mp4" />
       </video>
 
       {/* Grid Layout */}
