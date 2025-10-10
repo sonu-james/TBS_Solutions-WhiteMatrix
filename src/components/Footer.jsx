@@ -9,7 +9,7 @@ import {
   Instagram,
   Twitter,
 } from 'lucide-react';
-import { Link } from 'react-router-dom'; // <-- import Link
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -45,13 +45,13 @@ export default function Footer() {
                 Our Services
               </h3>
               <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
-                <li><Link to="/services" className="hover:text-[rgb(50,180,190)]">Digital Printing</Link></li>
-                <li><Link to="/services" className="hover:text-[rgb(50,180,190)]">Screen Printing</Link></li>
-                <li><Link to="/services" className="hover:text-[rgb(50,180,190)]">Office Stationery</Link></li>
-                <li><Link to="/services" className="hover:text-[rgb(50,180,190)]">Print Solutions</Link></li>
-                <li><Link to="/services" className="hover:text-[rgb(50,180,190)]">Corporate Gifts</Link></li>
-                <li><Link to="/services" className="hover:text-[rgb(50,180,190)]">Signage Solutions</Link></li>
-                <li><Link to="/services" className="hover:text-[rgb(50,180,190)]">Barcode Solutions</Link></li>
+                <li><Link to="/services#large-format-printing" className="hover:text-[rgb(50,180,190)]">Digital Printing</Link></li>
+                <li><Link to="/services#screen-printing" className="hover:text-[rgb(50,180,190)]">Screen Printing</Link></li>
+                <li><Link to="/services#office-stationery" className="hover:text-[rgb(50,180,190)]">Office Stationery</Link></li>
+                <li><Link to="/services#print-solutions" className="hover:text-[rgb(50,180,190)]">Print Solutions</Link></li>
+                <li><Link to="/services#corporate-gifts" className="hover:text-[rgb(50,180,190)]">Corporate Gifts</Link></li>
+                <li><Link to="/services#signage-solutions" className="hover:text-[rgb(50,180,190)]">Signage Solutions</Link></li>
+                <li><Link to="/services#barcode-solutions" className="hover:text-[rgb(50,180,190)]">Barcode Solutions</Link></li>
               </ul>
             </div>
 
@@ -79,19 +79,26 @@ export default function Footer() {
               <div className="space-y-2 text-xs sm:text-sm">
                 <div className="flex items-center justify-center md:justify-start">
                   <PhoneCall size={16} className="text-[rgb(50,180,190)] mr-2" />
-                  <a href="tel:+96891232596" className='hover:text-[rgb(50,180,190)]'>+968 91232596</a>
+                  <a href="tel:+96891232596" className="hover:text-[rgb(50,180,190)]">+968 91232596</a>
                 </div>
                 <div className="flex items-center justify-center md:justify-start">
                   <PhoneCall size={16} className="text-[rgb(50,180,190)] mr-2" />
-                  <a href="tel:+96890743018" className='hover:text-[rgb(50,180,190)]'>+968 90743018</a>
+                  <a href="tel:+96890743018" className="hover:text-[rgb(50,180,190)]">+968 90743018</a>
                 </div>
                 <div className="flex items-center justify-center md:justify-start">
                   <MailCheck size={16} className="text-[rgb(50,180,190)] mr-2" />
-                  <a href="mailto:infotbsoman@gmail.com" className='hover:text-[rgb(50,180,190)]'>info@truestaroman.com</a>
+                  <a href="mailto:infotbsoman@gmail.com" className="hover:text-[rgb(50,180,190)]">info@truestaroman.com</a>
                 </div>
                 <div className="flex items-center justify-center md:justify-start">
                   <Globe size={16} className="text-[rgb(50,180,190)] mr-2" />
-                  <a href="https://www.truestaroman.com" target="_blank" rel="noopener noreferrer" className='hover:text-[rgb(50,180,190)]'>www.truestaroman.com</a>
+                  <a
+                    href="https://www.truestaroman.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[rgb(50,180,190)]"
+                  >
+                    www.truestaroman.com
+                  </a>
                 </div>
               </div>
             </div>
@@ -103,7 +110,10 @@ export default function Footer() {
       {/* Lower Part */}
       <div className="bg-gray-300 text-slate-700 py-4 sm:py-6">
         <div className="max-w-7xl mx-auto text-center text-xs sm:text-sm">
-          © {new Date().getFullYear()} <span className="text-[rgb(50,180,190)] font-medium">True Star Business Solutions</span>. All rights reserved.
+          © {new Date().getFullYear()}{" "}
+          <span className="text-[rgb(50,180,190)] font-medium">
+            True Star Business Solutions SPC
+          </span>. All rights reserved.
         </div>
       </div>
     </footer>

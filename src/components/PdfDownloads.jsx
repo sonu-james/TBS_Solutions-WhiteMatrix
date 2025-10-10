@@ -11,116 +11,123 @@ export default function PdfDownloads() {
     {
       title: 'Company Profile',
       file: '/pdfs/TBSProfile.pdf',
-      cover: 'https://images.pexels.com/photos/8872719/pexels-photo-8872719.jpeg',
+      cover: '/images/TBS.png',
     },
     {
       title: 'Gift Sets Catalogue',
       file: '/pdfs/Gift.pdf',
-      cover: 'https://www.shikkmo.com/storage/new-products-uploads/bamboogiftset.jpg',
+      cover:
+        '/images/giftset.jpg',
     },
     {
       title: 'Gift Box Catalogue',
       file: '/pdfs/GiftBoxCatalog.pdf',
-      cover: 'https://static.vecteezy.com/system/resources/previews/011/720/981/original/black-gift-boxes-with-bow-free-png.png',
+      cover:
+        '/images/giftbox.webp',
     },
     {
       title: 'Gift M Catalogue',
       file: '/pdfs/Giftm.pdf',
-      cover: 'https://littletimber.com.au/wp-content/uploads/2023/06/LT0623-80-1-1200x1200.jpg',
+      cover:
+        '/images/MCatalogue.jpg',
     },
     {
       title: 'HAK Catalogue',
       file: '/pdfs/HAK.pdf',
-      cover: 'https://images.pexels.com/photos/8872719/pexels-photo-8872719.jpeg',
+      cover:
+        '/images/HakCatalogue.jpeg',
     },
+
   ];
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Animation Variants
   const cardVariants = {
-    hidden: (direction) => ({
-      opacity: 0,
-      x: direction === 'left' ? -80 : 80,
-    }),
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
-      x: 0,
-      transition: { duration: 0.7, ease: 'easeOut' },
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' },
     },
   };
 
   return (
     <>
       <Navbar />
-      <section className="w-full bg-[url('https://images.pexels.com/photos/187334/pexels-photo-187334.jpeg')] bg-cover bg-center bg-fixed py-20 px-6 md:px-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-700/60 via-white-800/60 to-cyan-900/30"></div>
-        <div className="relative max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white text-center mb-14 drop-shadow-lg">
-            📄 Download Our Resources
-          </h2>
+      <section
+        className="relative w-full py-20 px-6 md:px-20 overflow-hidden"
+        style={{
+          background: `radial-gradient(circle at 20% 20%, #030712, #0a192f 80%)`,
+        }}
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/10 to-black/70"></div>
 
-          <div className="flex flex-col gap-12">
+        <div className="relative max-w-7xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="text-4xl md:text-5xl  font-blackhan text-center mb-16  text-gray-400 "
+          >
+            Download Our Resources
+          </motion.h2>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={cardVariants}
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center"
+          >
             {pdfs.map((pdf, index) => (
               <motion.div
                 key={index}
-                className={`flex flex-col sm:flex-row ${
-                  index % 2 === 0 ? 'sm:justify-start' : 'sm:justify-end'
-                }`}
-                custom={index % 2 === 0 ? 'left' : 'right'} // controls direction
                 variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
+                className="bg-[#0f172a]/90 border border-cyan-900/40 rounded-md shadow-lg hover:shadow-cyan-600/30 transition-all duration-300 overflow-hidden flex flex-col w-full max-w-[400px]"
               >
-                <div
-                  className={`w-full sm:w-1/2 ${
-                    index % 2 === 0 ? 'sm:pr-12' : 'sm:pl-12'
-                  }`}
-                >
-                  {/* Card */}
-                  <div className="bg-black/90 border border-white/20 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
-                    {/* Cover */}
-                    <div className="w-full h-44 overflow-hidden">
-                      <img
-                        src={pdf.cover}
-                        alt={pdf.title}
-                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
+                {/* Image */}
+                <div className="w-full h-56 overflow-hidden">
+                  <img
+                    src={pdf.cover}
+                    alt={pdf.title}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
 
-                    {/* Content */}
-                    <div className="p-5">
-                      <h3 className="text-lg font-semibold text-white mb-4">
-                        {pdf.title}
-                      </h3>
-                      <div className="flex gap-3">
-                        <a
-                          href={pdf.file}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 px-3 text-sm flex items-center justify-center bg-gradient-to-r from-cyan-500 to-teal-500 text-white py-2 rounded-lg hover:opacity-90 transition shadow-md"
-                        >
-                          <Eye className="w-4 h-4 mr-1" /> Preview
-                        </a>
-                        <a
-                          href={pdf.file}
-                          download
-                          className="flex-1 px-3 text-sm flex items-center justify-center border border-cyan-400 text-cyan-300 py-2 rounded-lg hover:bg-cyan-500 hover:text-white transition shadow-md"
-                        >
-                          <Download className="w-4 h-4 mr-1" /> Download
-                        </a>
-                      </div>
-                    </div>
+                {/* Content */}
+                <div className="flex-1 p-6 flex flex-col justify-between">
+                  <h3 className="text-lg font-semibold text-white font-alan text-center mb-5 tracking-wide">
+                    {pdf.title}
+                  </h3>
+
+                  <div className="flex gap-3">
+                    <a
+                      href={pdf.file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center  justify-center bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white py-2.5 rounded-sm text-sm font-medium shadow-md hover:shadow-lg transition-all duration-300"
+                    >
+                      <Eye className="w-4 h-4 mr-2 font-alan" /> Preview
+                    </a>
+
+                    <a
+                      href={pdf.file}
+                      download
+                      className="flex-1 flex items-center justify-center border border-cyan-500 text-cyan-400 py-2.5 rounded-sm text-sm font-medium hover:bg-cyan-500 hover:text-white hover:shadow-lg transition-all duration-300"
+                    >
+                      <Download className="w-4 h-4 mr-2 font-alan" /> Download
+                    </a>
                   </div>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
+
       <Footer />
     </>
   );

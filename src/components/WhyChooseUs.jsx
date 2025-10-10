@@ -25,15 +25,23 @@ export default function WhyChooseUs() {
     <section
       id="why-choose-us"
       className="relative w-full py-24 px-6 md:px-16 
-                 bg-[url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1600&q=80')] 
+                 bg-[url('/images/whyus.avif')] 
                  bg-cover bg-center bg-fixed"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-cyan-700/60 via-blue-800/60 to-cyan-900/60"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto text-center text-white">
-        <h2 className="text-3xl  md:text-5xl font-alan font-extrabold mb-8">
+
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-5xl font-bold bg-clip-text font-blackhan  text-transparent 
+                            bg-white
+                             text-center mb-16"
+        >
           Why Choose Us
-        </h2>
+        </motion.h2>
 
         <p className="text-lg md:text-xl max-w-3xl mx-auto mb-16 text-gray-200 font-aktiv">
           We combine expertise, innovation, and customer-first values to deliver the best solutions tailored to your needs.

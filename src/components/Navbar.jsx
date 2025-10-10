@@ -8,10 +8,11 @@ export default function Navbar() {
   const navLinks = [
     { name: "HOME", href: "/#hero" },
     { name: "SERVICES", href: "/services" },
-    { name: "PRODUCTS", href: "/#products" },
+    { name: "PRODUCTS", href: "/products" },
     { name: "WHY US", href: "/#why-choose-us" },
+       { name: "DOWNLOADS", href: "/download" },
     { name: "CONTACT", href: "/#contact" },
-    { name: "DOWNLOADS", href: "/download" },
+ 
   ];
 
   return (
@@ -24,8 +25,8 @@ export default function Navbar() {
             <span className="text-2xl md:text-3xl font-blackhan tracking-[0.25em] uppercase">
               TRUE STAR
             </span>
-            <span className="text-xs md:text-sm font-normal tracking-[0.48em] text-gray-600">
-              business solutions
+            <span className="text-xs md:text-sm font-alan font-normal tracking-[0.30em] text-gray-800">
+              business solutions spc
             </span>
           </h1>
         </HashLink>

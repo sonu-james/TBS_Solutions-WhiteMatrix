@@ -19,6 +19,7 @@ export default function App() {
         <Route path='/services' element={<Services />} />
         <Route path='/products' element={<Product />} />
         <Route path='/download' element={<PdfDownloads/>} />
+
       </Routes>
     </>
   );

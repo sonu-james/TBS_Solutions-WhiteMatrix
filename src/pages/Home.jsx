@@ -7,7 +7,6 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import EquipmentAndProducts from '../components/EquipmentsandProduct';
 import ContactSection from '../components/ContactSection';
 import HeroNew from '../components/HeroNew';
-import PdfDownloads from '../components/PdfDownloads';
 import OfficeSupplies from '../components/OfficeSupplies';
 
 function Home() {
@@ -38,9 +37,9 @@ function Home() {
         <ServicesSection />
         <EquipmentAndProducts />
         <WhyChooseUs />
-         <OfficeSupplies/>
+        <OfficeSupplies />
         <ContactSection />
-       
+
         <Footer />
 
         {/* Scroll To Top Button */}

@@ -3,13 +3,9 @@ import { motion } from "framer-motion";
 
 export default function ServicesSection() {
   return (
-    <section
-      id="services"
-      className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden"
-    >
+    <section id="services" className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden" >
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Heading */}
-
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -32,7 +28,7 @@ export default function ServicesSection() {
             className="flex justify-center"
           >
             <img
-              src="https://www.pngmart.com/files/23/Business-PNG-HD.png"
+              src="/images/servicesHome.png"
               alt="Printing Services"
               className="rounded-2xl w-full max-w-md"
             />

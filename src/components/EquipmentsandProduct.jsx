@@ -64,18 +64,19 @@ export default function EquipmentAndProducts() {
     <section id="products" className="py-24 bg-gray-900 text-white relative">
       <div className="max-w-7xl mx-auto px-6 text-center">
      
-           <motion.h2
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="text-5xl font-bold bg-clip-text font-blackhan  text-transparent 
-                                     bg-gradient-to-r from-[rgb(60,207,215)] via-cyan-500 to-blue-600 
-                                     text-center mb-16">
-                  Premium Equipment & Products
-                  <p className="mt-4 text-gray-400 text-base font-alan md:text-lg font-normal">
-                    Industry-leading equipment and supplies for your business needs
-                  </p>
-                </motion.h2>
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-5xl font-bold bg-clip-text font-blackhan  text-transparent 
+                     bg-gradient-to-r from-[rgb(60,207,215)] via-cyan-500 to-blue-600 
+                     text-center mb-16"
+        >
+          Premium Equipment & Products
+          <p className="mt-4 text-gray-400 text-base font-alan md:text-lg font-normal">
+            Industry-leading equipment and supplies for your business needs
+          </p>
+        </motion.h2>
 
         {/* Swiper Slider */}
         <Swiper
@@ -99,7 +100,10 @@ export default function EquipmentAndProducts() {
         >
           {services.map((service, idx) => (
             <SwiperSlide key={idx}>
-              <div className="relative flex flex-col items-center space-y-4 p-6 rounded-xl transition group">
+              <div
+                onClick={() => navigate("/products")}
+                className="relative flex flex-col items-center space-y-4 p-6 rounded-xl transition group cursor-pointer"
+              >
                 <span className="absolute inset-0 rounded-xl pointer-events-none 
                                 before:content-[''] before:absolute before:top-0 before:left-0 
                                 before:w-10 before:h-10 before:border-t-4 before:border-l-4 
@@ -114,8 +118,8 @@ export default function EquipmentAndProducts() {
                 <div className="bg-white p-8 rounded-full shadow-md hover:bg-teal-100">
                   {service.icon}
                 </div>
-               <h3 className="text-lg font-semibold text-white leading-tight mb-0">{service.title}</h3>
-<p className="text-teal-500 text-center mt-0">{service.desc}</p>
+                <h3 className="text-lg font-semibold text-white leading-tight mb-0">{service.title}</h3>
+                <p className="text-teal-500 text-center mt-0">{service.desc}</p>
               </div>
             </SwiperSlide>
           ))}
